@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>JanuQ Financial Projection (2025-2029)</h1>
-    <div id="plotly-div"></div>
+    <div id="plotly-div" style="width: 100%; height: 800px;"></div> <!-- Adjusted size -->
 
     <script>
         var data = [
@@ -60,7 +60,9 @@
             yaxis: {
                 title: 'Amount ($ Millions)',
                 tickformat: ".2f"
-            }
+            },
+            width: 1200,  // Adjusted width
+            height: 800   // Adjusted height
         };
 
         Plotly.newPlot('plotly-div', data, layout);
