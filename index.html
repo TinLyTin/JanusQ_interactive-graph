@@ -11,10 +11,46 @@
     <div id="plotly-div"></div>
 
     <script>
+        function calculateTrendline(xValues, yValues) {
+            let n = yValues.length;
+            let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+
+            for (let i = 0; i < n; i++) {
+                sumX += xValues[i];
+                sumY += yValues[i];
+                sumXY += xValues[i] * yValues[i];
+                sumXX += xValues[i] * xValues[i];
+            }
+
+            let slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+            let intercept = (sumY - slope * sumX) / n;
+
+            let trendline = xValues.map(x => slope * x + intercept);
+            return trendline;
+        }
+
+        // Define your x-values as years converted to numbers
+        var xValues = [2025, 2026, 2027, 2028, 2029];
+
+        var totalRevenue = [347900, 695800, 1531600, 2867200, 5503500];
+        var totalRevenueTrendline = calculateTrendline(xValues, totalRevenue);
+
+        var courseRevenue = [198000, 396000, 872000, 1428000, 2580000];
+        var courseRevenueTrendline = calculateTrendline(xValues, courseRevenue);
+
+        var subscriptionRevenue = [149900, 299800, 659600, 1439200, 2923500];
+        var subscriptionRevenueTrendline = calculateTrendline(xValues, subscriptionRevenue);
+
+        var totalCosts = [333200, 331500, 431000, 528500, 593000];
+        var totalCostsTrendline = calculateTrendline(xValues, totalCosts);
+
+        var profit = [14700, 364300, 1100600, 2338700, 4910500];
+        var profitTrendline = calculateTrendline(xValues, profit);
+
         var data = [
             {
                 x: ["2025", "2026", "2027", "2028", "2029"],
-                y: [347900, 695800, 1531600, 2867200, 5503500],
+                y: totalRevenue,
                 type: 'scatter',
                 mode: 'lines+markers',
                 name: 'Total Revenue ($)',
@@ -22,7 +58,15 @@
             },
             {
                 x: ["2025", "2026", "2027", "2028", "2029"],
-                y: [198000, 396000, 872000, 1428000, 2580000],
+                y: totalRevenueTrendline,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Total Revenue Trendline',
+                line: {color: 'purple', dash: 'dash'}
+            },
+            {
+                x: ["2025", "2026", "2027", "2028", "2029"],
+                y: courseRevenue,
                 type: 'scatter',
                 mode: 'lines+markers',
                 name: 'Course Revenue ($)',
@@ -30,7 +74,15 @@
             },
             {
                 x: ["2025", "2026", "2027", "2028", "2029"],
-                y: [149900, 299800, 659600, 1439200, 2923500],
+                y: courseRevenueTrendline,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Course Revenue Trendline',
+                line: {color: 'blue', dash: 'dash'}
+            },
+            {
+                x: ["2025", "2026", "2027", "2028", "2029"],
+                y: subscriptionRevenue,
                 type: 'scatter',
                 mode: 'lines+markers',
                 name: 'Subscription Revenue ($)',
@@ -38,7 +90,15 @@
             },
             {
                 x: ["2025", "2026", "2027", "2028", "2029"],
-                y: [333200, 331500, 431000, 528500, 593000],
+                y: subscriptionRevenueTrendline,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Subscription Revenue Trendline',
+                line: {color: 'orange', dash: 'dash'}
+            },
+            {
+                x: ["2025", "2026", "2027", "2028", "2029"],
+                y: totalCosts,
                 type: 'scatter',
                 mode: 'lines+markers',
                 name: 'Total Costs ($)',
@@ -46,11 +106,27 @@
             },
             {
                 x: ["2025", "2026", "2027", "2028", "2029"],
-                y: [14700, 364300, 1100600, 2338700, 4910500],
+                y: totalCostsTrendline,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Total Costs Trendline',
+                line: {color: 'red', dash: 'dash'}
+            },
+            {
+                x: ["2025", "2026", "2027", "2028", "2029"],
+                y: profit,
                 type: 'scatter',
                 mode: 'lines+markers',
                 name: 'Profit ($)',
                 line: {color: 'green'}
+            },
+            {
+                x: ["2025", "2026", "2027", "2028", "2029"],
+                y: profitTrendline,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Profit Trendline',
+                line: {color: 'green', dash: 'dash'}
             }
         ];
 
@@ -58,7 +134,8 @@
             title: 'JanuQ 5-Year Financial Projection (2025-2029)',
             xaxis: {
                 title: 'Year',
-                type: 'category'  // Set X-axis to categorical type
+                tickvals: ["2025", "2026", "2027", "2028", "2029"],
+                ticktext: ["2025", "2026", "2027", "2028", "2029"]
             },
             yaxis: {
                 title: 'Amount ($ Millions)',
@@ -70,3 +147,4 @@
     </script>
 </body>
 </html>
+
