@@ -56,7 +56,10 @@
 
         var layout = {
             title: 'JanuQ 5-Year Financial Projection (2025-2029)',
-            xaxis: {title: 'Year'},
+            xaxis: {
+                title: 'Year',
+                type: 'category'  // Set X-axis to categorical type
+            },
             yaxis: {
                 title: 'Amount ($ Millions)',
                 tickformat: ".2f"
