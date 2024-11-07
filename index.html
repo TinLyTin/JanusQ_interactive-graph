@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JanuQ Financial Projection (Updated 2025-2029)</title>
+    <title>JanuQ Financial Projection ($M)</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,41 +18,14 @@
     <div id="plotly-div"></div>
 
     <script>
-        function calculateTrendline(xValues, yValues) {
-            let n = yValues.length;
-            let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-
-            for (let i = 0; i < n; i++) {
-                sumX += xValues[i];
-                sumY += yValues[i];
-                sumXY += xValues[i] * yValues[i];
-                sumXX += xValues[i] * xValues[i];
-            }
-
-            let slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-            let intercept = (sumY - slope * sumX) / n;
-
-            let trendline = xValues.map(x => slope * x + intercept);
-            return trendline;
-        }
-
         // Define your x-values as years converted to numbers
         var xValues = [2025, 2026, 2027, 2028, 2029];
 
         var totalRevenue = [0.5979, 1.1958, 2.7516, 5.1872, 10.4785];
-        var totalRevenueTrendline = calculateTrendline(xValues, totalRevenue);
-
         var courseRevenue = [0.398, 0.796, 1.832, 3.108, 5.98];
-        var courseRevenueTrendline = calculateTrendline(xValues, courseRevenue);
-
         var subscriptionRevenue = [0.1999, 0.3998, 0.9196, 2.0792, 4.4985];
-        var subscriptionRevenueTrendline = calculateTrendline(xValues, subscriptionRevenue);
-
         var totalCosts = [0.3332, 0.3315, 0.431, 0.5285, 0.593];
-        var totalCostsTrendline = calculateTrendline(xValues, totalCosts);
-
         var profit = [0.2647, 0.8643, 2.3206, 4.6587, 9.8855];
-        var profitTrendline = calculateTrendline(xValues, profit);
 
         var data = [
             {
