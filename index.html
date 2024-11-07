@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>JanuQ Financial Projection (2025-2029)</h1>
+    <p>Note: All figures are in millions of dollars ($M).</p>
     <div id="plotly-div"></div>
 
     <script>
@@ -32,19 +33,19 @@
         // Define your x-values as years converted to numbers
         var xValues = [2025, 2026, 2027, 2028, 2029];
 
-        var totalRevenue = [597900, 1195800, 2751600, 5187200, 10478500];
+        var totalRevenue = [0.5979, 1.1958, 2.7516, 5.1872, 10.4785];
         var totalRevenueTrendline = calculateTrendline(xValues, totalRevenue);
 
-        var courseRevenue = [398000, 796000, 1832000, 3108000, 5980000];
+        var courseRevenue = [0.398, 0.796, 1.832, 3.108, 5.98];
         var courseRevenueTrendline = calculateTrendline(xValues, courseRevenue);
 
-        var subscriptionRevenue = [199900, 399800, 919600, 2079200, 4498500];
+        var subscriptionRevenue = [0.1999, 0.3998, 0.9196, 2.0792, 4.4985];
         var subscriptionRevenueTrendline = calculateTrendline(xValues, subscriptionRevenue);
 
-        var totalCosts = [333200, 331500, 431000, 528500, 593000];
+        var totalCosts = [0.3332, 0.3315, 0.431, 0.5285, 0.593];
         var totalCostsTrendline = calculateTrendline(xValues, totalCosts);
 
-        var profit = [264700, 864300, 2320600, 4658700, 9885500];
+        var profit = [0.2647, 0.8643, 2.3206, 4.6587, 9.8855];
         var profitTrendline = calculateTrendline(xValues, profit);
 
         var data = [
@@ -53,7 +54,7 @@
                 y: totalRevenue,
                 type: 'scatter',
                 mode: 'lines+markers',
-                name: 'Total Revenue ($)',
+                name: 'Total Revenue ($M)',
                 line: {color: 'purple'}
             },
             {
@@ -69,7 +70,7 @@
                 y: courseRevenue,
                 type: 'scatter',
                 mode: 'lines+markers',
-                name: 'Course Revenue ($)',
+                name: 'Course Revenue ($M)',
                 line: {color: 'blue'}
             },
             {
@@ -85,7 +86,7 @@
                 y: subscriptionRevenue,
                 type: 'scatter',
                 mode: 'lines+markers',
-                name: 'Subscription Revenue ($)',
+                name: 'Subscription Revenue ($M)',
                 line: {color: 'orange'}
             },
             {
@@ -101,7 +102,7 @@
                 y: totalCosts,
                 type: 'scatter',
                 mode: 'lines+markers',
-                name: 'Total Costs ($)',
+                name: 'Total Costs ($M)',
                 line: {color: 'red'}
             },
             {
@@ -117,7 +118,7 @@
                 y: profit,
                 type: 'scatter',
                 mode: 'lines+markers',
-                name: 'Profit ($)',
+                name: 'Profit ($M)',
                 line: {color: 'green'}
             },
             {
@@ -138,7 +139,7 @@
                 ticktext: ["2025", "2026", "2027", "2028", "2029"]
             },
             yaxis: {
-                title: 'Amount ($ Millions)',
+                title: 'Amount ($M)',
                 tickformat: ".2f"
             }
         };
