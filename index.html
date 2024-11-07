@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JanuQ Financial Projection</title>
+    <title>JanuQ Financial Projection (Updated 2025-2029)</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
@@ -32,19 +32,19 @@
         // Define your x-values as years converted to numbers
         var xValues = [2025, 2026, 2027, 2028, 2029];
 
-        var totalRevenue = [347900, 695800, 1531600, 2867200, 5503500];
+        var totalRevenue = [597900, 1195800, 2751600, 5187200, 10478500];
         var totalRevenueTrendline = calculateTrendline(xValues, totalRevenue);
 
-        var courseRevenue = [198000, 396000, 872000, 1428000, 2580000];
+        var courseRevenue = [398000, 796000, 1832000, 3108000, 5980000];
         var courseRevenueTrendline = calculateTrendline(xValues, courseRevenue);
 
-        var subscriptionRevenue = [149900, 299800, 659600, 1439200, 2923500];
+        var subscriptionRevenue = [199900, 399800, 919600, 2079200, 4498500];
         var subscriptionRevenueTrendline = calculateTrendline(xValues, subscriptionRevenue);
 
         var totalCosts = [333200, 331500, 431000, 528500, 593000];
         var totalCostsTrendline = calculateTrendline(xValues, totalCosts);
 
-        var profit = [14700, 364300, 1100600, 2338700, 4910500];
+        var profit = [264700, 864300, 2320600, 4658700, 9885500];
         var profitTrendline = calculateTrendline(xValues, profit);
 
         var data = [
@@ -131,7 +131,7 @@
         ];
 
         var layout = {
-            title: 'JanuQ 5-Year Financial Projection (2025-2029)',
+            title: 'JanuQ 5-Year Financial Projection (Updated 2025-2029)',
             xaxis: {
                 title: 'Year',
                 tickvals: ["2025", "2026", "2027", "2028", "2029"],
@@ -147,4 +147,3 @@
     </script>
 </body>
 </html>
-
